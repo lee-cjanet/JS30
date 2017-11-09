@@ -1,20 +1,4 @@
-<html>
-
-<head>
-</head>
-
-<body>
-
-<div class='keys'>
-  <div data-key='65' class='key'>
-    <kbd>A</kbd>
-    <span class='sound'>clap</span>
-  </div>
-</div>
-
-<audio data-key="65" src="sounds/clap.wav"></audio>
-
-<script>
+// <script>
   window.addEventListener('keydown', function(e) {
     console.log(e)
     const audio = document.querySelector(`audio[data-key='${keyCode}']`);
@@ -25,8 +9,4 @@
     audio.currentTime = 0; //resets audio to beginning 0th second. audio normally wont play if there's already an audio playing
     audio.play
   });
-</script>
-
-</body>
-
-</html>
+// </script>
