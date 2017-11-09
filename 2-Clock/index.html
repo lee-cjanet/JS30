@@ -1,3 +1,12 @@
+<!-- 
+transform
+transform-origin
+transition
+transition-timing-function
+classObj.style.transform = change transform in CSS
+-->
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +29,7 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 350px;
-        filter: grayscale(100%);
+        /*filter: grayscale(100%);*/
         font-family:'helvetica neue';
         text-align: center;
         font-size: 10px;
@@ -54,12 +63,23 @@
         position: absolute;
         width: 50%;
         top: 50%;
+        right: 50%;
         height: 4px;
-        background: black;
+        background: #563913;
+        /*box-shadow: 0px 0px 1px #f2f2f2;*/
         transform: rotate(90deg); /*line is default horizonal. tilt it vertical*/
         transform-origin: 100%; /*tilt along origin, not in the middle of the line*/
         transition: all .07s; /*transform how slowly*/
         transition-timing-function: cubic-bezier(0.42, 0, 0, 2.98); /*the force of the tick*/
+      }
+      
+      .min {
+        width: 35%;
+      }
+      
+      .sec {
+        width: 25%;
+        height: 3px;
       }
     </style>
     
