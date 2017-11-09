@@ -8,8 +8,6 @@ body {
 
 .keys {
   display: flex;
-  /*display: flex;*/
-  /*flex: 7;*/
   min-height: 100vh;
   align-items: center;
   justify-content: center;
@@ -23,16 +21,16 @@ body {
   align-items: center;
   border: .4rem solid black;
   margin: 1rem .5rem;
-  /*align-items: center;*/
-  /*border-radius: .5rem;
+  align-items: center;
+  border-radius: .5rem;
   margin: 1rem;
   font-size: 1.5rem;
-  transition: all .07s ease;
+  transition: all .07s ease; /* event listener added*/
   width: 10rem;
   text-align: center;
   color: white;
   background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;*/
+  text-shadow: 0 0 .5rem black;
 }
 
 .playing {
@@ -46,5 +44,9 @@ kbd {
 }
 
 .sound {
-  
+  font-size: 1.2rem;
+  font: 'ariel';
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
 }
