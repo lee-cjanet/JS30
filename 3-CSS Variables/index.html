@@ -15,25 +15,31 @@
   <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
 
   <label for="base">Base Color</label>
+  <!-- setting color in 'input' pops up a color box -->
   <input id="base" type="color" name="base" value="#ffc600">
 </div>
 
 <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
 <style>
+/*default variables to root elements*/
+/*DECLARE variables here*/
   :root {
-    --base: #fff;
+    --base: #ffc600;
     --spacing: 10px;
     --blur: 10px;
   }
 
-  /*
-    misc styles, nothing to do with CSS variables
-  */
-  
-  /*base {
-    
-  }*/
+/*SET variables here*/
+  img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+  }
+
+  hl {
+    background: var(--base);
+  }
 
   body {
     text-align: center;
@@ -54,7 +60,16 @@
 </style>
 
 <script>
+  const inputs = document.querySelectorAll('.controls input') //this is a NodeList, NOT an array
+
+  function handleUpdate() {
+    const suffix = this.dataset.sizing || ""; // "" for color code
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+  }
+
+  inputs.forEach(input => input.addEventListener('change', handleUpdate))
+  inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
 </script>
-    
+
   </body>
 </html>
