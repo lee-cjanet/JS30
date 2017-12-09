@@ -15,6 +15,7 @@
   ctx.strokeStyle = '#BADASS';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
+  ctx.lineWidth = 100;
   
   let isDrawing = false;
   let lastX = 0;
@@ -35,7 +36,12 @@
   }
   
   canvas.addEventListener('mousemove', draw)
-  canvas.addEventListener('mousedown', () => isDrawing = true)
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    // this will start the drawing where we click, instead of 0,0 origin
+    lastX = e.offsetX;
+    lastY = e.offsetY
+  })
   canvas.addEventListener('mouseup', () => isDrawing = false)
   canvas.addEventListener('mouseout', () => isDrawing = false)
 </script>
