@@ -1,3 +1,8 @@
+<!-- 
+%s, %c 
+.error, .warn, .info, .assert, .clear, .dir, .group/groupCollapsed/.groupEnd,
+.count, .table, .time/.timeEnd -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,30 +21,81 @@
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
+    
+    //right click on element in console
+    //break on..
+    //attribute modification
+    // this will put a debugger when that attribute is changed. in this case, clicked on. will say what p is equal to (p = p)
 
     // Regular
+    console.log('hello')
 
     // Interpolated
+    console.log("i'm a %s string!", 'poop') //es5
+    // const var = 'pooper'
+    // console.log(`i am a ${var}`) //es6
 
     // Styled
+    console.log("%c i'm a great font", 'font-size:50px; background:red')
 
     // warning!
+    console.warn('oh noooo')
 
     // Error :|
+    console.error('danger')
 
     // Info
+    console.info("crocs eat 3-4 ppl/year")
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), "you did not select the right element")
+    // will only throw an error message if the return is false. nothing happens if test is true
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    //shows actual element itself
+    console.dir(p)
+    //will list all the properties and methods for p
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`) //name of each group is the dog's name
+      console.groupCollapsed(`${dog.name}`) //name of each group is the dog's name
+        console.log(`Dog's name is ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age} years old`)
+        console.log(`${dog.name} is ${dog.age * 7} in human years`)
+      console.groupEnd(`${dog.name}`)
+    })
 
     // counting
-
+    console.count('wes')
+    console.count('wes')
+    console.count('north')
+    console.count('north')
+    console.count('wes')
+    console.count('north')
+    console.count('wes')
+    console.count('wes')
+    console.count('north')
+    console.count('wes')
+    console.count('wes')
+    
+    
+    
     // timing
+    console.time('fetching data');
+    fetch('http://api.github.com/users/wesbos')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('fetching data')
+      console.log(data)
+    })
+    
+    console.table(dogs)
 
   </script>
 </body>
