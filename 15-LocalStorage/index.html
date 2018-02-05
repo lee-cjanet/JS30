@@ -64,7 +64,7 @@
   }
 
   addItems.addEventListener('submit', addItem);
-  itemsList.addEventListener('click', toggleDone);
+  itemsList.addEventListener('click', toggleDone); //whenever a click happends inside itemsList ( the parent ). check what to do. instead of adding eventlistener everytime an element is added. can get confusing
   populateList(items, itemsList);
 
 </script>
