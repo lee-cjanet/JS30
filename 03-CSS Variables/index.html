@@ -37,7 +37,7 @@
     filter: blur(var(--blur));
   }
 
-  hl {
+  .hl {
     background: var(--base);
   }
 
@@ -62,13 +62,15 @@
 <script>
   const inputs = document.querySelectorAll('.controls input') //this is a NodeList, NOT an array
 
-  function handleUpdate() {
+  function handleUpdate(e) {
     const suffix = this.dataset.sizing || ""; // "" for color code
+    // console.log(e)
     document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
   }
 
   inputs.forEach(input => input.addEventListener('change', handleUpdate))
-  inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
+  inputs.forEach(input => input.addEventListener('mousemove', handleUpdate)) //changes val as you move the mouse, not only when you stop the click
+  //this will trigger a change EVERYTIME the mouse moves, may want to set true/false values so that the mousemove event only happens after a click
 </script>
 
   </body>
